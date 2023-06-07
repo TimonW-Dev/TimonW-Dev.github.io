@@ -9,3 +9,8 @@ body {
     margin-top: 10%;
     font-size: 250%;
 }
+
+.hoverHide:hover {
+    color:aqua;
+    background-color: black;
+}
