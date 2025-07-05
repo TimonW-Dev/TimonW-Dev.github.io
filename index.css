@@ -151,6 +151,39 @@ main.content {
     min-width: 0;
 }
 
+/* GitHub metadata styling */
+.gh-meta {
+    background: #f8f9fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9em;
+    color: #586069;
+    line-height: 1.5;
+}
+
+.gh-meta > div {
+    margin-bottom: 0.5rem;
+}
+
+.gh-meta > div:last-child {
+    margin-bottom: 0;
+}
+
+.gh-meta strong {
+    color: #24292e;
+}
+
+.gh-meta a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+.gh-meta a:hover {
+    text-decoration: underline;
+}
+
 /* Footer at the end of content area */
 footer.footer {
     padding: 1.5rem 2rem;
