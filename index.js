@@ -2,7 +2,7 @@
 // Configuration
 // ---------------------------
 const GITHUB_OWNER = "TimonW-Dev";
-const GITHUB_REPO = "shortitdoc-test";
+const GITHUB_REPO = "TimonW-Dev.github.io";
 const GITHUB_TOKEN = "";
 const basePath = './Documentation/';
 const welcomeFile = basePath + 'Welcome.md';
