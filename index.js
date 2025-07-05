@@ -9,7 +9,7 @@ const welcomeFile = basePath + 'Welcome.md';
 
 // Files without category
 const uncategorizedFiles = [
-    ""
+
 ];
 
 
@@ -17,8 +17,8 @@ const uncategorizedFiles = [
 // Categorized files
 const categories = [
    {
-      "name": "",
-      "files": [""]
+      "name": "Micro Python",
+      "files": ["Upload Library to Microcontroller.md"]
    }
 ];
 
