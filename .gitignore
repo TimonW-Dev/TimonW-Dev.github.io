@@ -1,0 +1,2 @@
+# Ignore all .bkp files in all subdirectories
+**/*.bkp

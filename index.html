@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>shortitdoc.com - The short IT documentation</title>
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./lib/github.min.css">
+</head>
+<body>
+  <header>
+    <button class="hamburger" aria-label="Open menu">&#9776;</button>
+    <h1 class="headerText">shortitdoc.com - The short IT documentation</h1>
+    <button class="share-btn" aria-label="Share link">
+      <img src="./images/share.svg" alt="Share" />
+    </button>
+  </header>
+  <div class="container">
+    <nav class="sidebar">
+      <ul id="markdown-list"></ul>
+    </nav>
+    <div class="content-area">
+      <main class="content" id="markdown-content">
+        <!-- The content is loaded dynamically -->
+      </main>
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>Contributions are welcome</h4>
+            <ul>
+              <li><a href="https://github.com/TimonW-Dev/shortitdoc-test" target="_blank">Create or edit an article via GitHub Merge Request</a></li>
+              <li><a href="https://github.com/TimonW-Dev/shortitdoc-test/issues" target="_blank">Report a bug or suggest improvements via GitHub Issues</a></li>
+              <li><a href="mailto:shortitdoc@outlook.com">Send us an email</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <div class="footer-legal">
+              <a href="?doc=./footer/Legal Notice.md">Legal Notice</a>
+              <a href="?doc=./footer/privacy policy.md">Privacy Policy</a>
+              <a href="?doc=./footer/Disclaimer.md">Disclaimer</a>
+              <a href="?doc=./footer/Licenses.md">Licenses</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <div id="toast" class="toast"></div>
+  <div id="cookie-notice" class="cookie-notice">
+    <div class="cookie-content">
+      <p>This site stores your last visited page locally to improve your browsing experience. No personal data is collected or shared.</p>
+      <button id="accept-cookies" class="cookie-btn">Accept</button>
+    </div>
+  </div>
+  <script src="./lib/marked.min.js"></script>
+  <script src="./lib/highlight.min.js"></script>
+  <script src="./index.js"></script>
+</body>
+</html>
