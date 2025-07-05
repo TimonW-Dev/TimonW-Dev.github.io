@@ -424,4 +424,3 @@ pre { position: relative; }
     letter-spacing: 0.5px;
 }
 .markdown-body tr:nth-child(even) td { background: #f4f8fb; }
-.markdown-body tr:hover td { background: #e9eafd; }
