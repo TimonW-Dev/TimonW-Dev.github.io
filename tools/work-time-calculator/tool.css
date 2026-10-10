@@ -1,0 +1,129 @@
+.work-time-form {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+.work-time-input {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  min-width: 0;
+}
+.work-time-input input {
+  width: 100%;
+  min-width: 0;
+}
+.work-time-break {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .85rem;
+}
+.work-time-break input {
+  width: 1rem;
+  height: 1rem;
+}
+.work-time-periods {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+.work-time-period {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: .5rem;
+  margin: 0;
+  padding: .5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.work-time-period legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  grid-column: 1;
+  grid-row: 1;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 .25rem;
+  color: var(--muted);
+  font-size: .85rem;
+}
+.work-time-button {
+  padding: .3rem .55rem;
+  font-size: .85rem;
+}
+.work-time-period .work-time-input {
+  grid-column: 1 / -1;
+}
+.work-time-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+.work-time-add {
+  align-self: flex-start;
+}
+.work-time-remove {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+.work-time-remove:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+.work-time-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: .75rem;
+}
+.work-time-result {
+  padding: .75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+}
+.work-time-result h3,
+.work-time-result p {
+  margin: 0;
+}
+.work-time-sexagesimal {
+  font-size: 1.35rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.work-time-decimal {
+  color: var(--muted);
+  font-size: .9rem;
+}
+.work-time-remaining[data-state="remaining"] {
+  border-color: #c24141;
+}
+.work-time-remaining[data-state="remaining"] .work-time-sexagesimal {
+  color: #ff8585;
+}
+.work-time-remaining[data-state="complete"] {
+  border-color: #32834b;
+}
+.work-time-remaining[data-state="complete"] .work-time-sexagesimal {
+  color: #72d88c;
+}
+.work-time-status {
+  min-height: 1.5em;
+  margin: 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+.work-time-input input[aria-invalid="true"] {
+  border-color: #ff6b6b;
+}
+@media (max-width: 500px) {
+  .work-time-results {
+    grid-template-columns: 1fr;
+  }
+}
