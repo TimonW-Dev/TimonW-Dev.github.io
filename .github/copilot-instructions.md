@@ -9,5 +9,5 @@ Project: sysadminsuite.com – static site with sysadmin tools as tiles. Stack: 
 - Keep legal pages (`pages/`) consistent: use at own risk, no liability, Swiss law.
 - UI language is English. Keep code small, commented only where unclear.
 - Skills in `.github/skills/`: `add-tool`, `document-api` (every external API goes into `pages/apis.html`), `test-locally`.
-- Test only with the VS Code Live Server at http://127.0.0.1:5500/; do not use Python or another local server.
+- Test only with the VS Code Live Server at http://127.0.0.1:5500/;
 - See `CONTRIBUTING.md` and `docs/`.

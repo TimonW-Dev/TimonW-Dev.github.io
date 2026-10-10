@@ -2,9 +2,14 @@
 // size.w: columns (1-4), size.h: rows (1-3). Tool logic lives in tools/<name>/tool.js.
 // Optional page/css paths point to files relative to the site root.
 export const categories = [
-  { id: 'examples', title: 'Examples' },
+  { id: 'calculators', title: 'Calculators' },
 ];
 
 export const tools = [
-  { name: '_template', category: 'examples', size: { w: 1, h: 1 } },
+  {
+    name: 'number-base-converter',
+    category: 'calculators',
+    size: { w: 1, h: 1 },
+    css: 'tools/number-base-converter/tool.css',
+  },
 ];
