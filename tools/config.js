@@ -8,6 +8,12 @@ export const categories = [
 
 export const tools = [
   {
+    name: 'work-time-calculator',
+    category: 'calculators',
+    size: { w: 2, h: 1 },
+    css: 'tools/work-time-calculator/tool.css',
+  },
+  {
     name: 'number-base-converter',
     category: 'calculators',
     size: { w: 1, h: 1 },
