@@ -102,9 +102,9 @@ export default {
     results.setAttribute('aria-atomic', 'true');
     const resultItems = [];
     for (const [label, className] of [['Worked', 'work-time-worked'], ['Remaining', 'work-time-remaining']]) {
-      const item = document.createElement('section');
+      const item = document.createElement('div');
       item.className = `work-time-result ${className}`;
-      const heading = document.createElement('h3');
+      const heading = document.createElement('strong');
       heading.textContent = label;
       const sexagesimal = document.createElement('p');
       sexagesimal.className = 'work-time-sexagesimal';
