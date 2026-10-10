@@ -11,6 +11,6 @@
    - No cookies, trackers or third-party scripts/CDNs.
    - Use `textContent`, never `innerHTML`, with user input.
    - Small, focused PRs; describe what you tested.
-4. Test only with VS Code Live Server ("Go Live") at http://127.0.0.1:5500/. Do not use Python or another local server.
+4. Test e.g with the VS-Code Live Server extension at http://127.0.0.1:5500/.
 
 Layout: see [docs/architecture.md](docs/architecture.md).

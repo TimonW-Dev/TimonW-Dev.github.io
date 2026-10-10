@@ -1,0 +1,27 @@
+.base-converter-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: .75rem;
+}
+.tool-page-body .base-converter-fields {
+  grid-template-columns: 1fr;
+}
+.base-converter-field {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+.base-converter-field input {
+  width: 100%;
+  min-width: 0;
+  font-family: ui-monospace, monospace;
+}
+.base-converter-field input[aria-invalid="true"] {
+  border-color: #ff6b6b;
+}
+.base-converter-status {
+  min-height: 1.5em;
+  margin: .25rem 0 0;
+  color: #ff9b9b;
+  font-size: .9rem;
+}

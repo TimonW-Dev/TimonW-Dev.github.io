@@ -3,9 +3,9 @@ name: test-locally
 description: Test sysadminsuite.com changes in the browser using the VS Code Live Server at http://127.0.0.1:5500/. Use after changing HTML, CSS, JS, tools or legal pages, or when verifying that subpages open.
 ---
 
-# Test locally
+**# Test locally**
 
-ES modules do not work via `file://`. Use only the VS Code Live Server at **http://127.0.0.1:5500/**. Do not use Python's HTTP server or another local server.
+ES modules require a local server, so using **VS Code Live Server** at [http://127.0.0.1:5500/](http://127.0.0.1:5500/) is recommended. Avoid opening files via `file://`.
 
 ## Steps
 1. Make sure Live Server is running (start it from VS Code with "Go Live" if needed) and http://127.0.0.1:5500/ responds.

@@ -14,7 +14,7 @@ Stack: plain HTML, CSS, JavaScript (ES modules). No frameworks, build step or de
 4. By default, the shared page and styles are used. Only when needed, add `tools/<name>/index.html` and set `page: 'tools/<name>/index.html'`, or add `tools/<name>/tool.css` and set `css: 'tools/<name>/tool.css'`. Paths are relative to the site root. Custom pages should copy the structure of `tool.html`, set `data-root="../../"` on `<body>`, keep the `tool-title`, `tool-desc`, `tool-category`, and `tool-body` elements, and load `../../assets/js/tool-page.js`; the overview appends `?name=<name>` to the custom page path.
 5. Shared helpers go to `assets/js/`, shared styles to `assets/css/tiles.css`. Keep the tool otherwise self-contained.
 5. If the tool contacts an external service, follow the `document-api` skill in the same change.
-7. Test only with the VS Code Live Server at `http://127.0.0.1:5500/` via the `test-locally` skill; do not use Python or another local server.
+7. Test only with the VS Code Live Server at `http://127.0.0.1:5500/` via the `test-locally` skill;
 
 ## Rules
 - Compute locally in the browser whenever possible.
