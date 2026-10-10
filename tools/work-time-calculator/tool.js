@@ -255,11 +255,12 @@ export default {
       const difference = targetMinutes - workedMinutes;
       const absoluteDifference = Math.abs(difference);
       const isOvertime = difference < 0;
+      const hasWorkTime = entries.some((entry) => entry.clockIn.value !== '' || entry.clockOut.value !== '');
       const suffix = isOvertime ? 'overtime' : 'remaining';
       resultItems[1].heading.textContent = isOvertime ? 'Overtime' : 'Remaining';
       resultItems[1].sexagesimal.textContent = `${formatTime(absoluteDifference)} h`;
       resultItems[1].decimal.textContent = `${formatDecimal(absoluteDifference)} decimal hours ${suffix}`;
-      resultItems[1].item.dataset.state = difference > 0 ? 'remaining' : 'complete';
+      resultItems[1].item.dataset.state = difference > 0 && hasWorkTime ? 'remaining' : difference > 0 ? '' : 'complete';
       if (!status.textContent && openPeriods.length === 1) {
         status.textContent = 'Your open time period is counted up to the current time.';
       }
