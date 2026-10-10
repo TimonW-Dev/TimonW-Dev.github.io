@@ -1,0 +1,31 @@
+---
+name: test-locally
+description: Test sysadminsuite.com changes in the browser using the VS Code Live Server at http://127.0.0.1:5500/. Use after changing HTML, CSS, JS, tools or legal pages, or when verifying that subpages open.
+---
+
+# Test locally
+
+ES modules do not work via `file://`. Use only the VS Code Live Server at **http://127.0.0.1:5500/**. Do not use Python's HTTP server or another local server.
+
+## Steps
+1. Make sure Live Server is running (start it from VS Code with "Go Live" if needed) and http://127.0.0.1:5500/ responds.
+2. Open the page with the browser tools (`openBrowserPage`, then `readPage` / `screenshotPage`) and check the console for errors.
+3. Run the checks below that apply to the change.
+
+## Checklist
+- **Home** (`/`): tiles render, no console errors, search works (also the `/` shortcut) and shows "No tools found" for no match.
+- **Consent**: with `localStorage` key `sas-consent-v1` cleared, the dialog appears on the home page only; accepting stores it; the footer "Consent" link shows it again.
+- **Subpages**: each must be reachable and readable without accepting consent:
+  - /pages/imprint.html
+  - /pages/privacy.html
+  - /pages/terms.html
+  - /pages/apis.html
+
+  Header/footer links must go to the right pages; "Home" returns to `/`.
+- **Contact**: "Show contact email" reveals the address on click (no plain email in the source).
+- **Tools**: test valid, invalid and empty input, keyboard use, and a narrow screen (about 375 px wide).
+- **API tools**: only hosts listed in `pages/apis.html` are contacted (see the `document-api` skill).
+- **404**: `404.html` applies on GitHub Pages only; Live Server shows its own error page.
+
+## Report
+Summarize what was tested and any failures. Do not leave temporary files behind.
