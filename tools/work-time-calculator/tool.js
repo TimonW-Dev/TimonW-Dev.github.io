@@ -19,6 +19,18 @@ function formatDecimal(minutes) {
 function formatTimeInput(input) {
   const rawValue = input.value;
   const caret = input.selectionStart ?? rawValue.length;
+  if (rawValue.includes(':')) {
+    const colonIndex = rawValue.indexOf(':');
+    const hours = rawValue.slice(0, colonIndex).replace(/\D/g, '').slice(0, 2);
+    const minutes = rawValue.slice(colonIndex + 1).replace(/\D/g, '').slice(0, 2);
+    const paddedHours = hours.length === 1 && minutes.length === 2 ? `0${hours}` : hours;
+    input.value = `${paddedHours}:${minutes}`;
+    const formattedCaret = caret > colonIndex
+      ? paddedHours.length + 1 + rawValue.slice(colonIndex + 1, caret).replace(/\D/g, '').length
+      : rawValue.slice(0, caret).replace(/\D/g, '').length + (paddedHours.length > hours.length && caret > 0 ? 1 : 0);
+    input.setSelectionRange(Math.min(input.value.length, formattedCaret), Math.min(input.value.length, formattedCaret));
+    return;
+  }
   const digitsBeforeCaret = rawValue.slice(0, caret).replace(/\D/g, '').length;
   const digits = rawValue.replace(/\D/g, '').slice(0, 4);
   input.value = digits.length > 2 ? `${digits.slice(0, 2)}:${digits.slice(2)}` : digits;
