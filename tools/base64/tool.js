@@ -6,12 +6,12 @@ export default {
     const plaintext = document.createElement('input');
     plaintext.type = 'text';
     plaintext.placeholder = 'Plain Text';
-    plaintext.setAttribute('aria-label', 'Input');
+    plaintext.setAttribute('aria-label', 'Plain text');
 
     const base64 = document.createElement('input');
     base64.type = 'text';
     base64.placeholder = 'Base64';
-    base64.setAttribute('aria-label', 'Input');
+    base64.setAttribute('aria-label', 'Base64 encoded text');
 
     plaintext.addEventListener('input', () => {
       base64.value = btoa(plaintext.value);
