@@ -25,7 +25,7 @@ Every approved external data service must be listed in `pages/apis.html` in the 
    - **Provider privacy**: link to the provider's privacy policy.
 2. In `tool.js`, add a comment near the request pointing to `pages/apis.html`, and show a short note in the tile that data is sent to the service.
 3. Handle failures gracefully (offline, rate limit, CORS) with a readable message via `textContent`.
-4. Keep legal pages consistent: "use at your own risk, no liability, Swiss law". Only update `pages/privacy.html` or `assets/js/consent.js` when data processing changes materially; if the consent text changes, bump the `KEY` version in `consent.js` so everyone is asked again.
+4. Keep legal pages consistent: "use at your own risk, no liability". Only update `pages/privacy.html` or `assets/js/consent.js` when data processing changes materially; if the consent text changes, bump the `KEY` version in `consent.js` so everyone is asked again.
 5. Complete the API/third-party service review and documentation checkboxes in the PR template.
 
 ## Verify

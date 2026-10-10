@@ -9,6 +9,7 @@
 5. Only when needed, add `tools/<name>/index.html` and set `page: 'tools/<name>/index.html'` on the config entry for a custom full page. Copy the structure of `tool.html`, use `data-root="../../"` on `<body>`, keep the `tool-title`, `tool-desc`, `tool-category`, and `tool-body` elements, and load `../../assets/js/tool-page.js`. The overview appends `?name=<name>` to the configured page path.
 6. Only when needed, add `tools/<name>/tool.css` and set `css: 'tools/<name>/tool.css'` on the config entry. It is loaded on the overview and tool page.
 7. Use external APIs only if needed; list them on `pages/apis.html`.
-8. Test with VS Code Live Server at `http://127.0.0.1:5500/`: tile, tool page, keyboard use, narrow screens and search.
+8. We recommend testing with the Visual Studio Code “Live Server” extension at the following URL: `http://127.0.0.1:5500/`. Other live servers also work. When testing, focus on the following:
+tiles, dedicated tool pages, keyboard usage, narrow screens, and search.
 
 Keep tools self-contained: shared helpers go to `assets/js/`, shared styles to `assets/css/tiles.css`.

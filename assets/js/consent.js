@@ -1,4 +1,4 @@
-const KEY = 'sas-consent-v1'; // bump the version to ask everyone again after legal changes
+const KEY = 'sas-consent-v2'; // bump the version to ask everyone again after legal changes
 
 export function hasConsent() {
   try { return localStorage.getItem(KEY) === 'yes'; } catch { return false; }
@@ -13,15 +13,16 @@ function show() {
   wrap.setAttribute('aria-modal', 'true');
   wrap.innerHTML = `
     <div class="box">
-      <h2>Use at your own risk</h2>
-      <p>sysadminsuite.com is provided free of charge and "as is". Results may be
-      incomplete or wrong. You use all tools at your own risk. To the extent
-      permitted by law, the operator accepts no responsibility and no liability.</p>
-      <p>Some tools use third-party services (e.g. MAC vendor lookup) and send
-      the data you enter to them. See <a href="${root}pages/apis.html">APIs &amp; third parties</a>,
+      <h2>Personal hobby project — use at your own risk</h2>
+      <p>sysadminsuite.com is a free, best-effort open-source hobby project, provided "as is".
+      Results may be incomplete or wrong. Check all results before relying on them, especially in
+      production systems. To the extent permitted by law, the operator excludes responsibility and liability.</p>
+      <p>No tool APIs are currently used. If a tool later sends data to an external service, details will
+      appear on <a href="${root}pages/apis.html">APIs &amp; third parties</a>. Please read the
       <a href="${root}pages/terms.html">Terms</a> and <a href="${root}pages/privacy.html">Privacy</a>.</p>
-      <p>By continuing you accept all of the above once for the whole site.</p>
-      <button type="button" id="consent-ok">I understand and accept</button>
+      <p>Continuing confirms that you have read this notice. It does not waive rights that cannot legally
+      be waived or replace consent required by law for a specific data use.</p>
+      <button type="button" id="consent-ok">I understand</button>
     </div>`;
   document.body.append(wrap);
   document.getElementById('consent-ok').addEventListener('click', () => {
