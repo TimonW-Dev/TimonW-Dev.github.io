@@ -4,6 +4,7 @@
 export const categories = [
   { id: 'calculators', title: 'Calculators' },
   { id: 'encoders-decoders', title: 'Encoders / Decoders' },
+  { id: 'phonetic-alphabets', title: 'Phonetic Alphabets' },
 ];
 
 export const tools = [
@@ -23,5 +24,17 @@ export const tools = [
     name: 'base64',
     category: 'encoders-decoders',
     size: { w: 1, h: 1 },
+  },
+  {
+    name: 'nato-phonetic-alphabet',
+    category: 'phonetic-alphabets',
+    size: { w: 1, h: 1 },
+    css: 'tools/nato-phonetic-alphabet/tool.css',
+  },
+  {
+    name: 'swiss-telephone-alphabet',
+    category: 'phonetic-alphabets',
+    size: { w: 1, h: 1 },
+    css: 'tools/swiss-telephone-alphabet/tool.css',
   },
 ];
