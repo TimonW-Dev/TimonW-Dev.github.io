@@ -10,6 +10,8 @@ Copy `tools/_template/` to `tools/<name>/`, edit `tool.js`, and add `{ name, cat
 
 - Use plain HTML, CSS and JS (ES modules)—no frameworks, build step or dependencies.
 - By default, each tool gets one tile and uses the shared standard page. A custom `index.html` and `tool.css` are optional; custom pages should use `assets/js/tool-page.js` to render the tool module.
+- Keep tool-specific JavaScript in `tools/<name>/tool.js` and tool-specific styles in `tools/<name>/tool.css`, registering the stylesheet with `css` in `tools/config.js`. Do not add files under `assets/js/` or rules to global CSS for logic or styles used only by one tool or category, unless deliberately establishing a documented reusable component standard. Add shared JavaScript or global CSS only for functionality or styles genuinely reused across the site, multiple independent tools, or an intentionally standardized shared component.
+- Use the shared `.tool-info` class from `assets/css/tiles.css` for inline information icons. Place it next to the content it explains and provide a concise `title`, matching `aria-label`, `role="img"`, and `tabindex="0"` for hover and keyboard focus.
 - Prefer local computation.
 - Using an API or third-party service? Check the provider's terms, privacy policy and data handling, confirm it uses HTTPS and doesn't need a committed secret / API key, and make sure it fits the project rules and users' privacy expectations.
 - Document every external data service in `pages/apis.html`. Include the service host, the precise user data sent and a link to the provider. Disclose data use in the tool, handle request failures clearly, and verify it contacts only documented hosts. No third-party scripts, fonts, CDNs, trackers or analytics.

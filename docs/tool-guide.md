@@ -12,4 +12,6 @@
 8. We recommend testing with the Visual Studio Code “Live Server” extension at the following URL: `http://127.0.0.1:5500/`. Other live servers also work. When testing, focus on the following:
 tiles, dedicated tool pages, keyboard usage, narrow screens, and search.
 
-Keep tools self-contained: shared helpers go to `assets/js/`, shared styles to `assets/css/tiles.css`.
+Keep tools self-contained: tool-specific JavaScript belongs in `tools/<name>/tool.js`, and tool-specific styles belong in `tools/<name>/tool.css`, registered through `css` in `tools/config.js`. Do not add files under `assets/js/` or rules to `assets/css/base.css` or `assets/css/tiles.css` for logic or styles used only by one tool or category, unless deliberately establishing a documented reusable component standard. Add shared JavaScript or global CSS only for functionality or styles genuinely reused across the site, multiple independent tools, or an intentionally standardized shared component.
+
+Use the shared `.tool-info` class from `assets/css/tiles.css` for inline information icons. Place the icon next to the content it explains and provide a concise `title`, matching `aria-label`, `role="img"`, and `tabindex="0"` for hover and keyboard focus.
