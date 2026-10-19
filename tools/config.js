@@ -5,6 +5,7 @@ export const categories = [
   { id: 'calculators', title: 'Calculators' },
   { id: 'encoders-decoders', title: 'Encoders / Decoders' },
   { id: 'phonetic-alphabets', title: 'Phonetic Alphabets' },
+  { id: 'network', title: 'Network' },
 ];
 
 export const tools = [
@@ -36,5 +37,11 @@ export const tools = [
     category: 'phonetic-alphabets',
     size: { w: 1, h: 1 },
     css: 'tools/swiss-telephone-alphabet/tool.css',
+  },
+  {
+    name: 'mac-vendor-lookup',
+    category: 'network',
+    size: { w: 1, h: 1 },
+    css: 'tools/mac-vendor-lookup/tool.css',
   },
 ];

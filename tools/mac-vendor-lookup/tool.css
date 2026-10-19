@@ -1,0 +1,27 @@
+.mac-vendor-input {
+  font-family: ui-monospace, monospace;
+}
+.mac-vendor-input[aria-invalid="true"] {
+  border-color: #ff6b6b;
+}
+.mac-vendor-result {
+  min-height: 1.5em;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+.mac-vendor-result[data-state="invalid"],
+.mac-vendor-result[data-state="error"] {
+  color: #ff9b9b;
+  font-family: inherit;
+  font-size: .9rem;
+}
+.mac-vendor-result[data-state="empty"],
+.mac-vendor-result[data-state="loading"] {
+  color: var(--muted);
+  font-family: inherit;
+}
+.mac-vendor-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: .8rem;
+}
