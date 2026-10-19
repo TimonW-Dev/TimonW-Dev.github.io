@@ -191,6 +191,7 @@ export default {
       let totalMinutes = 0;
       let error = '';
       const openPeriods = [];
+      let futureOpenPeriod = false;
 
       for (const [index, entry] of entries.entries()) {
         const startValue = entry.clockIn.value;
@@ -227,9 +228,11 @@ export default {
         } else {
           const now = new Date();
           const currentMinutes = now.getHours() * 60 + now.getMinutes();
-          let elapsed = currentMinutes - openPeriod.start;
-          if (elapsed < 0) elapsed += 1440;
-          totalMinutes += elapsed;
+          if (openPeriod.start > currentMinutes) {
+            futureOpenPeriod = true;
+          } else {
+            totalMinutes += currentMinutes - openPeriod.start;
+          }
         }
       }
 
@@ -273,7 +276,7 @@ export default {
       resultItems[1].sexagesimal.textContent = `${formatTime(absoluteDifference)} h`;
       resultItems[1].decimal.textContent = `${formatDecimal(absoluteDifference)} decimal hours ${suffix}`;
       resultItems[1].item.dataset.state = difference > 0 && hasWorkTime ? 'remaining' : difference > 0 ? '' : 'complete';
-      if (!status.textContent && openPeriods.length === 1) {
+      if (!status.textContent && openPeriods.length === 1 && !futureOpenPeriod) {
         status.textContent = 'Your open time period is counted up to the current time.';
       }
     }
