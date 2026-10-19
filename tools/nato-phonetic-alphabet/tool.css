@@ -24,3 +24,11 @@
 }
 .phonetic-letter { display: flex; align-items: center; gap: .2rem; font-weight: 700; }
 .phonetic-word { min-width: 0; overflow-wrap: anywhere; }
+
+.tool-page-body .phonetic-grid {
+  gap: clamp(1rem, 3vw, 3rem);
+  font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+}
+.tool-page-body .phonetic-column { gap: .35rem; }
+.tool-page-body .phonetic-entry { line-height: 1.55; }
+.tool-page-body .phonetic-letter { gap: .5rem; }
