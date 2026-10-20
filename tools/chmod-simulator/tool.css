@@ -1,0 +1,52 @@
+.chmod-simulator-fields {
+  display: grid;
+  gap: .75rem;
+}
+.chmod-symbolic-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .5rem;
+}
+.chmod-simulator-field {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+.chmod-simulator-field input {
+  width: 100%;
+  min-width: 0;
+  font-family: ui-monospace, monospace;
+}
+.chmod-simulator-field input[aria-invalid="true"] {
+  border-color: #ff6b6b;
+}
+.chmod-terminal-output {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: .5rem;
+  justify-content: start;
+  padding-top: .25rem;
+}
+.chmod-terminal-label {
+  grid-column: 1 / -1;
+}
+.chmod-directory-option {
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+}
+.chmod-directory-option input {
+  margin: 0;
+}
+.chmod-terminal-value {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-family: ui-monospace, monospace;
+}
+.chmod-simulator-status {
+  min-height: 1.5em;
+  margin: .25rem 0 0;
+  color: #ff9b9b;
+  font-size: .9rem;
+}
