@@ -23,7 +23,7 @@ ES modules require a local server, so using **VS Code Live Server** at [http://1
 
   Header/footer links must go to the right pages; "Home" returns to `/`.
 - **Contact**: "Show contact email" reveals the address on click (no plain email in the source).
-- **Tools**: test valid, invalid and empty input, keyboard use, and a narrow screen (about 375 px wide).
+- - **Tools**: test valid, invalid and empty input, keyboard use, and both desktop and narrow screen (about 375 px wide) layouts as described above.
 - **API tools**: only hosts listed in `pages/apis.html` are contacted (see the `document-api` skill).
 - **404**: `404.html` applies on GitHub Pages only; Live Server shows its own error page.
 

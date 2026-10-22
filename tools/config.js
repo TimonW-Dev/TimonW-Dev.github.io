@@ -22,6 +22,12 @@ export const tools = [
     css: 'tools/number-base-converter/tool.css',
   },
   {
+    name: 'chmod-simulator',
+    category: 'calculators',
+    size: { w: 1, h: 1 },
+    css: 'tools/chmod-simulator/tool.css',
+  },
+  {
     name: 'base64',
     category: 'encoders-decoders',
     size: { w: 1, h: 1 },
