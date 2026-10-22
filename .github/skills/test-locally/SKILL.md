@@ -16,7 +16,7 @@ ES modules require a local server, so using **VS Code Live Server** at [http://1
 - **Home** (`/`): tiles render, no console errors, search works (also the `/` shortcut) and shows "No tools found" for no match.
 - **Consent**: with `localStorage` key `sas-consent` cleared, the dialog appears on the home page only; accepting stores it; the footer "Consent" link shows it again. After accepting, change text in a legal page (`pages/*.html`) and reload: the dialog returns with the "legal texts have changed" notice (restore the text afterwards).
 - **Layout**: categories sit side by side only if all their tiles fit; the category title collapses/expands and is remembered (`sas-collapsed`).
-- **Favorites**: the star adds a tile to the top "Favorites" section (stored in `sas-favorites`); drag the ⠿ handle or use arrow keys to reorder; unstarring removes it; the section is hidden without favorites.
+- **Favorites**: the star adds a tile to the top "Favorites" section (stored in `sas-favorites`); use the left and right arrow keys on the ⠿ handle to reorder; unstarring removes it; the section is hidden without favorites.
 - **Theme**: the header switch toggles light/dark (default dark, stored in `sas-theme`) on the home, tool and legal pages.
 - **Subpages**: each must be reachable and readable without accepting consent:
   - /pages/imprint.html
