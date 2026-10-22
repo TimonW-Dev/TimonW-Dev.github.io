@@ -162,7 +162,7 @@ export default {
           octalInput.setAttribute('aria-invalid', 'false');
           status.textContent = isEmpty
             ? ''
-            : 'Allowed characters: `r` (read), `w` (write), `x` (execute), or `-` (no permission).';
+            : 'Allowed characters: r (read), w (write), x (execute), or - (no permission).';
           updateTerminalOutput();
           return;
         }
