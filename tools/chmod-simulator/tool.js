@@ -1,7 +1,7 @@
 const permissions = [
-  { label: 'Owner', digit: 4, id: 'chmod-owner' },
-  { label: 'Group', digit: 2, id: 'chmod-group' },
-  { label: 'Others', digit: 1, id: 'chmod-others' },
+  { label: 'Owner', digit: 4, id: 'owner' },
+  { label: 'Group', digit: 2, id: 'group' },
+  { label: 'Others', digit: 1, id: 'others' },
 ];
 
 function symbolicPermissions(value) {
@@ -25,16 +25,18 @@ export default {
   description: 'Convert chmod numbers to symbolic permissions and edit either format.',
   tags: ['chmod', 'permissions', 'linux', 'rwx', 'file permissions', 'octal'],
   render(el) {
+    // Unique ids: the tile can be rendered twice (overview + favorites).
+    const prefix = `chmod-${Math.random().toString(36).slice(2, 8)}`;
     const form = document.createElement('div');
     form.className = 'chmod-simulator-fields';
 
     const octalLabel = document.createElement('label');
     octalLabel.className = 'chmod-simulator-field';
-    octalLabel.htmlFor = 'chmod-octal';
+    octalLabel.htmlFor = `${prefix}-octal`;
     octalLabel.append(document.createTextNode('Octal permissions'));
 
     const octalInput = document.createElement('input');
-    octalInput.id = 'chmod-octal';
+    octalInput.id = `${prefix}-octal`;
     octalInput.type = 'text';
     octalInput.inputMode = 'numeric';
     octalInput.autocomplete = 'off';
@@ -52,11 +54,11 @@ export default {
     for (const permission of permissions) {
       const label = document.createElement('label');
       label.className = 'chmod-simulator-field';
-      label.htmlFor = permission.id;
+      label.htmlFor = `${prefix}-${permission.id}`;
       label.append(document.createTextNode(permission.label));
 
       const input = document.createElement('input');
-      input.id = permission.id;
+      input.id = `${prefix}-${permission.id}`;
       input.type = 'text';
       input.inputMode = 'text';
       input.autocomplete = 'off';

@@ -13,7 +13,7 @@ The current project includes tools such as:
 - number and base conversions
 - time and work-time calculations
 - encoding and decoding helpers
-- a searchable overview of available utilities
+- a searchable overview of available utilities with collapsible categories, favorites (reorderable) and a light/dark mode; these settings are saved only in your browser
 
 Everything is designed to work directly in the browser and to be easy to host on a simple static website.
 
