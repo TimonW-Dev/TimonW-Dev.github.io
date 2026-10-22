@@ -7,7 +7,7 @@ pages/              imprint, privacy, terms, apis (legal; keep minimal)
 assets/css|js|img|icons
   js/app.js         overview: category sections, collapsing, favorites, filtering
   js/theme.js       light/dark switch (classic script in <head>, key sas-theme)
-  js/reorder.js     drag & keyboard reordering of favorite tiles
+  js/reorder.js     keyboard reordering of favorite tiles
   js/local-state.js localStorage helpers (keys sas-favorites, sas-collapsed)
   js/tool-page.js   standalone tool page
   js/tools.js       shared loader (config + tool modules)

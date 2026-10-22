@@ -1,5 +1,6 @@
 const TARGET_KEY = 'sas-work-time-daily-target-v1';
 const MAX_PERIODS = 5;
+let instanceCount = 0;
 
 function timeToMinutes(value) {
   const match = /^([01]\d|2[0-3]):([0-5]\d)$/.exec(value);
@@ -58,9 +59,10 @@ export default {
   description: 'So, how much longer do I actually have to work today?',
   tags: ['work time', 'working hours', 'time tracking', 'timesheet', 'break', 'daily target'],
   render(el) {
+    const instanceId = ++instanceCount;
     const form = document.createElement('div');
     form.className = 'work-time-form';
-    const targetField = createLabeledInput('Daily target (24-hour HH:MM)', 'work-time-target', 'text');
+    const targetField = createLabeledInput('Daily target (24-hour HH:MM)', `work-time-target-${instanceId}`, 'text');
     targetField.input.inputMode = 'numeric';
     targetField.input.placeholder = 'HH:MM';
     targetField.input.maxLength = 5;
@@ -127,8 +129,8 @@ export default {
       const legend = document.createElement('legend');
       const legendTitle = document.createElement('span');
       legendTitle.textContent = `Time period ${index + 1}`;
-      const clockIn = createLabeledInput('Clock in (24-hour HH:MM)', `work-time-in-${index + 1}`, 'text');
-      const clockOut = createLabeledInput('Clock out (24-hour HH:MM)', `work-time-out-${index + 1}`, 'text');
+      const clockIn = createLabeledInput('Clock in (24-hour HH:MM)', `work-time-${instanceId}-in-${index + 1}`, 'text');
+      const clockOut = createLabeledInput('Clock out (24-hour HH:MM)', `work-time-${instanceId}-out-${index + 1}`, 'text');
       for (const input of [clockIn.input, clockOut.input]) {
         input.inputMode = 'numeric';
         input.placeholder = 'HH:MM';
@@ -174,10 +176,10 @@ export default {
       entries.forEach((entry, index) => {
         entry.legendTitle.textContent = `Time period ${index + 1}`;
         entry.row.setAttribute('aria-label', `Time period ${index + 1}`);
-        entry.clockIn.id = `work-time-in-${index + 1}`;
+        entry.clockIn.id = `work-time-${instanceId}-in-${index + 1}`;
         entry.clockInLabel.htmlFor = entry.clockIn.id;
         entry.clockIn.setAttribute('aria-label', `Clock in, time period ${index + 1}`);
-        entry.clockOut.id = `work-time-out-${index + 1}`;
+        entry.clockOut.id = `work-time-${instanceId}-out-${index + 1}`;
         entry.clockOutLabel.htmlFor = entry.clockOut.id;
         entry.clockOut.setAttribute('aria-label', `Clock out, time period ${index + 1}`);
         entry.row.querySelector('button').setAttribute('aria-label', `Remove time period ${index + 1}`);

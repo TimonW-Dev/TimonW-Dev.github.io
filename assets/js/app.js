@@ -159,7 +159,7 @@ function layout() {
     star.title = `${on ? 'Remove' : 'Add'} ${t.tool.title} ${on ? 'from' : 'to'} favorites`;
     star.setAttribute('aria-label', star.title);
   }
-  const shown = tiles.some((t) => !t.isFavorite && !t.el.classList.contains('hidden'));
+  const shown = tiles.some((t) => !t.el.classList.contains('hidden'));
   empty.classList.toggle('hidden', shown);
 }
 
