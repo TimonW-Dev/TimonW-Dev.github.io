@@ -61,10 +61,24 @@
 }
 .tile .open:hover, .tile .tile-star:hover, .tile .tile-handle:hover { border-color: var(--accent); }
 .tile .tile-star[aria-pressed="true"] { color: var(--favorite); border-color: var(--favorite); }
-.tile .tile-handle { margin-right: .5rem; cursor: grab; touch-action: none; color: var(--muted); }
+.tile .tile-handle { margin-right: .5rem; color: var(--muted); }
 .tile-head h3 { flex: 1; min-width: 0; }
-.tile.dragging { opacity: .6; outline: 2px dashed var(--accent); user-select: none; }
-.tile.dragging .tile-handle { cursor: grabbing; }
+.reorder-hint {
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  bottom: 1rem;
+  max-width: calc(100vw - 2rem);
+  padding: .65rem .9rem;
+  transform: translateX(-50%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .35);
+  font-size: .9rem;
+  text-align: center;
+}
 .desc { margin: 0; color: var(--muted); font-size: .9rem; }
 .body { display: flex; flex-direction: column; gap: .5rem; }
 .body label { font-size: .85rem; color: var(--muted); }

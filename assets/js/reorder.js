@@ -1,7 +1,19 @@
-// Reorders `.tile` children of a container via drag handles (`.tile-handle`).
-// Pointer events cover mouse, touch and pen; arrow keys on a focused handle work too.
+// Reorders `.tile` children of a container using the arrow keys on `.tile-handle`.
 export function enableReorder(container, onChange) {
-  let drag = null;
+  const hint = document.createElement('div');
+  hint.className = 'reorder-hint hidden';
+  hint.setAttribute('role', 'status');
+  hint.setAttribute('aria-live', 'polite');
+  hint.textContent = 'Use the left and right arrow keys to reorder favorites.';
+  document.body.append(hint);
+
+  function showHint() {
+    hint.classList.remove('hidden');
+  }
+
+  function hideHint() {
+    hint.classList.add('hidden');
+  }
 
   function visibleSibling(tile, dir) {
     let el = dir < 0 ? tile.previousElementSibling : tile.nextElementSibling;
@@ -11,39 +23,28 @@ export function enableReorder(container, onChange) {
     return el;
   }
 
-  function end() {
-    if (!drag) return;
-    drag.tile.classList.remove('dragging');
-    drag = null;
-    onChange();
-  }
-
-  container.addEventListener('pointerdown', (e) => {
+  container.addEventListener('focus', (e) => {
     const handle = e.target.closest('.tile-handle');
-    if (!handle || e.button > 0) return;
-    drag = { tile: handle.closest('.tile'), pointerId: e.pointerId };
-    handle.setPointerCapture(e.pointerId);
-    drag.tile.classList.add('dragging');
-  });
+    if (handle) showHint();
+  }, true);
 
-  container.addEventListener('pointermove', (e) => {
-    if (!drag || e.pointerId !== drag.pointerId) return;
-    const over = document.elementsFromPoint(e.clientX, e.clientY)
-      .find((el) => el !== drag.tile && el.classList.contains('tile') && el.parentElement === container);
-    if (!over) return;
-    const after = drag.tile.compareDocumentPosition(over) & Node.DOCUMENT_POSITION_FOLLOWING;
-    container.insertBefore(drag.tile, after ? over.nextElementSibling : over);
-  });
+  container.addEventListener('blur', (e) => {
+    if (e.target.closest('.tile-handle')) hideHint();
+  }, true);
 
-  container.addEventListener('pointerup', end);
-  container.addEventListener('pointercancel', end);
+  container.addEventListener('click', (e) => {
+    const handle = e.target.closest('.tile-handle');
+    if (!handle) return;
+    handle.focus();
+    showHint();
+  });
 
   container.addEventListener('keydown', (e) => {
     const handle = e.target.closest('.tile-handle');
-    if (!handle || !/^Arrow(Left|Right|Up|Down)$/.test(e.key)) return;
+    if (!handle || !/^Arrow(Left|Right)$/.test(e.key)) return;
     e.preventDefault();
     const tile = handle.closest('.tile');
-    if (/Left|Up/.test(e.key)) {
+    if (e.key === 'ArrowLeft') {
       const prev = visibleSibling(tile, -1);
       if (prev) container.insertBefore(tile, prev);
     } else {
@@ -52,5 +53,6 @@ export function enableReorder(container, onChange) {
     }
     handle.focus();
     onChange();
+    hideHint();
   });
 }

@@ -45,7 +45,7 @@ function buildTile(tool, isFavorite) {
   actions.append(star, open);
   if (isFavorite) {
     const handle = iconButton('tile-handle', '⠿');
-    handle.title = `Reorder ${tool.title}: drag, or use the arrow keys`;
+    handle.title = `Reorder ${tool.title} with the left and right arrow keys`;
     handle.setAttribute('aria-label', handle.title);
     head.append(handle);
   }
