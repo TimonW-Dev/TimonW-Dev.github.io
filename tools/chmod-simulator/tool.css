@@ -47,6 +47,6 @@
 .chmod-simulator-status {
   min-height: 1.5em;
   margin: .25rem 0 0;
-  color: #ff9b9b;
   font-size: .9rem;
+  font-style: italic;
 }
