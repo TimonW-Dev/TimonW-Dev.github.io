@@ -20,6 +20,24 @@
       <thead><tr><th>Tool</th><th>Service</th><th>Data sent</th><th>Provider privacy</th></tr></thead>
       <tbody>
         <tr>
+          <td>CVE Lookup</td>
+          <td><code>nvd.nist.gov</code></td>
+          <td>With a valid ID, “Open NVD record” puts the normalized CVE ID in the URL path
+          <code>/vuln/detail/&lt;cve-id&gt;</code>. With an empty or invalid ID, “Search NVD” opens
+          <code>/vuln/search</code> without an ID. The selected page receives standard browser/request
+          data. No request is made while typing.</td>
+          <td><a href="https://www.nist.gov/oism/site-privacy">NIST site privacy</a></td>
+        </tr>
+        <tr>
+          <td>CVE Lookup</td>
+          <td><code>www.cve.org</code></td>
+          <td>With a valid ID, “Open CVE.org record” puts the normalized CVE ID in the URL query
+          parameter <code>id</code>. With an empty or invalid ID, “Search CVE.org” opens its home page
+          without an ID. The selected page receives standard browser/request data. CVE.org's privacy
+          policy describes its use of cookies and Google Analytics. No request is made while typing.</td>
+          <td><a href="https://www.cve.org/Legal/PrivacyPolicy">CVE Program privacy policy</a></td>
+        </tr>
+        <tr>
           <td>MAC Vendor Lookup</td>
           <td><code>raw.githubusercontent.com</code> (GitHub, public repository
           <a href="https://github.com/TimonW-Dev/sysadminsuite-data">TimonW-Dev/sysadminsuite-data</a>)</td>
