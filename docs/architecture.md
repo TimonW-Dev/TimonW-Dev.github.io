@@ -5,11 +5,14 @@ index.html          overview: search + tiles grouped by category
 tool.html           standard page for one tool (tool.html?name=<name>)
 pages/              imprint, privacy, terms, apis (legal; keep minimal)
 assets/css|js|img|icons
-  js/app.js         overview: builds category sections and tiles
+  js/app.js         overview: category sections, collapsing, favorites, filtering
+  js/theme.js       light/dark switch (classic script in <head>, key sas-theme)
+  js/reorder.js     keyboard reordering of favorite tiles
+  js/local-state.js localStorage helpers (keys sas-favorites, sas-collapsed)
   js/tool-page.js   standalone tool page
   js/tools.js       shared loader (config + tool modules)
   js/search.js      tile filtering
-  js/consent.js     one-time consent modal (localStorage)
+  js/consent.js     consent modal; asks again when the notice or a legal page changes (hash in localStorage)
   js/contact.js     click-to-reveal email (anti-scraping)
 tools/config.js     categories, tool name/category/size/order and optional page/css paths
 tools/<name>/tool.js required ES module per tool (render(el)), used by tile and page

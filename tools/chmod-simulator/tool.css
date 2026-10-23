@@ -18,7 +18,7 @@
   font-family: ui-monospace, monospace;
 }
 .chmod-simulator-field input[aria-invalid="true"] {
-  border-color: #ff6b6b;
+  border-color: var(--danger);
 }
 .chmod-terminal-output {
   display: grid;

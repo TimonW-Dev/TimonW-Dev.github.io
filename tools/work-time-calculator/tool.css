@@ -102,16 +102,16 @@
   font-size: .9rem;
 }
 .work-time-remaining[data-state="remaining"] {
-  border-color: #c24141;
+  border-color: var(--danger-strong);
 }
 .work-time-remaining[data-state="remaining"] .work-time-sexagesimal {
-  color: #ff8585;
+  color: var(--danger-text);
 }
 .work-time-remaining[data-state="complete"] {
-  border-color: #32834b;
+  border-color: var(--ok-strong);
 }
 .work-time-remaining[data-state="complete"] .work-time-sexagesimal {
-  color: #72d88c;
+  color: var(--ok-text);
 }
 .work-time-status {
   min-height: 1.5em;
@@ -120,7 +120,7 @@
   font-size: .9rem;
 }
 .work-time-input input[aria-invalid="true"] {
-  border-color: #ff6b6b;
+  border-color: var(--danger);
 }
 @media (max-width: 500px) {
   .work-time-results {

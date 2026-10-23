@@ -17,11 +17,11 @@
   font-family: ui-monospace, monospace;
 }
 .base-converter-field input[aria-invalid="true"] {
-  border-color: #ff6b6b;
+  border-color: var(--danger);
 }
 .base-converter-status {
   min-height: 1.5em;
   margin: .25rem 0 0;
-  color: #ff9b9b;
+  color: var(--danger-text);
   font-size: .9rem;
 }

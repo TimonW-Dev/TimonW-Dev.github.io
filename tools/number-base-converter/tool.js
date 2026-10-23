@@ -3,6 +3,7 @@ const fields = [
   { base: 2, label: 'Binary', id: 'number-base-binary' },
   { base: 16, label: 'Hexadecimal', id: 'number-base-hexadecimal' },
 ];
+let instanceCount = 0;
 
 function parseInteger(value, base) {
   const patterns = {
@@ -23,6 +24,7 @@ export default {
   description: 'Convert whole numbers between decimal, binary and hexadecimal in real time.',
   tags: ['binary', 'decimal', 'hex', 'hexadecimal', 'number base', 'converter'],
   render(el) {
+    const instanceId = ++instanceCount;
     const inputs = new Map();
     const form = document.createElement('div');
     form.className = 'base-converter-fields';
@@ -34,11 +36,11 @@ export default {
     for (const field of fields) {
       const label = document.createElement('label');
       label.className = 'base-converter-field';
-      label.htmlFor = field.id;
+      label.htmlFor = `${field.id}-${instanceId}`;
       label.append(document.createTextNode(field.label));
 
       const input = document.createElement('input');
-      input.id = field.id;
+      input.id = `${field.id}-${instanceId}`;
       input.type = 'text';
       input.inputMode = field.base === 10 ? 'decimal' : 'text';
       input.autocomplete = 'off';

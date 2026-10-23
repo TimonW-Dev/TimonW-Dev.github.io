@@ -2,7 +2,7 @@
   font-family: ui-monospace, monospace;
 }
 .mac-vendor-input[aria-invalid="true"] {
-  border-color: #ff6b6b;
+  border-color: var(--danger);
 }
 .mac-vendor-result {
   min-height: 1.5em;
@@ -11,7 +11,7 @@
 }
 .mac-vendor-result[data-state="invalid"],
 .mac-vendor-result[data-state="error"] {
-  color: #ff9b9b;
+  color: var(--danger-text);
   font-family: inherit;
   font-size: .9rem;
 }
