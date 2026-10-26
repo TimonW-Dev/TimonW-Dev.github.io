@@ -6,6 +6,7 @@ export const categories = [
   { id: 'encoders-decoders', title: 'Encoders / Decoders' },
   { id: 'phonetic-alphabets', title: 'Phonetic Alphabets' },
   { id: 'network', title: 'Network' },
+  { id: 'cheatsheets', title: 'Cheatsheets' },
 ];
 
 export const tools = [
@@ -49,5 +50,11 @@ export const tools = [
     category: 'network',
     size: { w: 1, h: 1 },
     css: 'tools/mac-vendor-lookup/tool.css',
+  },
+  {
+    name: 'docker-cheatsheet',
+    category: 'cheatsheets',
+    size: { w: 2, h: 1 },
+    css: 'tools/docker-cheatsheet/tool.css',
   },
 ];

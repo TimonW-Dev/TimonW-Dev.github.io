@@ -1,0 +1,49 @@
+.docker-cheatsheet code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .85em;
+}
+.cs-rows {
+  display: grid;
+  grid-template-columns: fit-content(62%) minmax(0, 1fr);
+  gap: .15rem .9rem;
+  align-items: baseline;
+}
+.cs-cmd {
+  overflow-wrap: anywhere;
+  color: var(--accent);
+}
+.cs-comment { color: var(--muted); font-size: .85rem; }
+.cs-comment code { color: var(--text); }
+
+/* Tool page: sections flow into as many columns as fit. */
+.tool-page-body .docker-cheatsheet {
+  columns: 520px;
+  column-gap: 2rem;
+}
+.cs-section {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+.cs-section h2 {
+  margin: 0 0 .6rem;
+  padding-bottom: .3rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 1.1rem;
+}
+.cs-block {
+  margin-bottom: .9rem;
+  padding: .6rem .75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+}
+.cs-heading { margin: 0 0 .4rem; font-size: .85rem; font-weight: 700; color: var(--muted); }
+.cs-heading code { color: var(--text); }
+.cs-note { margin: .6rem 0 0; font-size: .85rem; }
+.cs-warn { color: var(--danger-text); }
+.cs-linux-permissions .cs-warn { color: var(--text); }
+
+@media (max-width: 600px) {
+  .cs-rows { grid-template-columns: 1fr; gap: 0; }
+  .cs-comment { margin-bottom: .3rem; }
+}
