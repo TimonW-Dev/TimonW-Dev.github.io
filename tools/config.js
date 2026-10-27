@@ -57,4 +57,10 @@ export const tools = [
     size: { w: 2, h: 1 },
     css: 'tools/docker-cheatsheet/tool.css',
   },
+  {
+    name: 'git-cheatsheet',
+    category: 'cheatsheets',
+    size: { w: 2, h: 1 },
+    css: 'tools/git-cheatsheet/tool.css',
+  },
 ];
