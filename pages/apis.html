@@ -20,6 +20,27 @@
       <thead><tr><th>Tool</th><th>Service</th><th>Data sent</th><th>Provider privacy</th></tr></thead>
       <tbody>
         <tr>
+          <td>CVE Lookup</td>
+          <td><code>nvd.nist.gov</code></td>
+          <td>With a correctly formatted CVE ID, “Lookup on NVD” puts the normalized CVE ID in the URL path
+          <code>/vuln/detail/&lt;cve-id&gt;</code>. With a non-empty value that is not a correctly formatted CVE ID,
+          “Search NVD” sends the entered search term in the <code>keyword</code> query parameter to
+          <code>/vuln/search</code>. An empty input opens <code>/vuln/search</code> without a keyword. The selected
+          page receives standard browser/request data. No request is made while typing.</td>
+          <td><a href="https://www.nist.gov/oism/site-privacy">NIST site privacy</a></td>
+        </tr>
+        <tr>
+          <td>CVE Lookup</td>
+          <td><code>www.cve.org</code></td>
+          <td>With a correctly formatted CVE ID, “Lookup on CVE.org” puts the normalized CVE ID in the URL query
+          parameter <code>id</code>. With a non-empty value that is not a correctly formatted CVE ID, “Search
+          CVE.org” sends the entered search term in the <code>query</code> parameter to
+          <code>/CVERecord/SearchResults</code>. An empty input opens the CVE.org home page without a search term.
+          The selected page receives standard browser/request data. CVE.org's privacy policy describes its use
+          of cookies and Google Analytics. No request is made while typing.</td>
+          <td><a href="https://www.cve.org/Legal/PrivacyPolicy">CVE Program privacy policy</a></td>
+        </tr>
+        <tr>
           <td>MAC Vendor Lookup</td>
           <td><code>raw.githubusercontent.com</code> (GitHub, public repository
           <a href="https://github.com/TimonW-Dev/sysadminsuite-data">TimonW-Dev/sysadminsuite-data</a>)</td>
