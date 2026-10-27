@@ -202,9 +202,17 @@ const sections = [
           ['git fetch', 'Fetch from the default remote without changing local branches'],
           ['git fetch --all', 'Fetch from all remotes without changing local branches'],
           ['git pull', 'Fetch and merge or rebase the current branch\'s upstream'],
-          ['git pull --all', 'Fetch from all remotes, then integrate the current branch\'s upstream'],
         ],
         note: '`--all` means all remotes, not all local branches; remotes configured to skip fetch-all are excluded. `git pull` normally requires an upstream branch.',
+      },
+      {
+        heading: 'Reset a local branch to match origin',
+        rows: [
+          ['git fetch origin', 'Fetch updates from the origin remote'],
+          ['git reset --hard origin/<your-branch-name>', 'Reset the current branch and working files to match the remote branch'],
+        ],
+        note: '**Caution:** `git reset --hard` permanently discards uncommitted changes. Replace `<your-branch-name>` with the branch name.',
+        warn: true,
       },
       {
         heading: 'Why fetch?',
