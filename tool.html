@@ -12,6 +12,25 @@
 <body data-root="">
   <header>
     <a class="logo" href="./">sysadminsuite.com</a>
+    <div class="header-preferences">
+      <div id="site-clock" class="site-clock" aria-live="off">
+        <time id="site-date"></time>
+        <span id="clock-separator" aria-hidden="true">·</span>
+        <time id="site-time"></time>
+      </div>
+    </div>
+    <details class="display-settings">
+      <summary aria-label="Date and time settings" title="Date and time settings">⚙</summary>
+      <div class="settings-menu">
+        <label><input id="show-date" type="checkbox" checked> Show date</label>
+        <label><input id="show-time" type="checkbox" checked> Show time</label>
+        <label><input id="show-seconds" type="checkbox" checked> Show seconds</label>
+      </div>
+    </details>
+    <div class="search tool-search">
+      <input id="tool-search" type="search" placeholder="Search tools…" aria-label="Search tools" autocomplete="off" aria-controls="tool-search-results" aria-expanded="false" aria-autocomplete="list">
+      <div id="tool-search-results" class="tool-search-results hidden" role="listbox" aria-label="Matching tools"></div>
+    </div>
   </header>
   <main>
     <nav class="crumbs" aria-label="Breadcrumb">
@@ -31,6 +50,7 @@
     <a href="#" data-contact>Show contact email</a>
     <p>Use at your own risk. No warranty; liability is excluded to the extent permitted by law.</p>
   </footer>
+  <script type="module" src="assets/js/topbar.js"></script>
   <script type="module" src="assets/js/tool-page.js"></script>
 </body>
 </html>

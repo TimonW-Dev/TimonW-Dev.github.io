@@ -3,10 +3,10 @@
 // Optional page/css paths point to files relative to the site root.
 export const categories = [
   { id: 'calculators', title: 'Calculators' },
-  { id: 'encoders-decoders', title: 'Encoders / Decoders' },
   { id: 'phonetic-alphabets', title: 'Phonetic Alphabets' },
   { id: 'network', title: 'Network' },
   { id: 'security', title: 'Security' },
+  { id: 'encoders-decoders', title: 'Encoders / Decoders' },
   { id: 'cheatsheets', title: 'Cheatsheets' },
 ];
 
@@ -28,11 +28,6 @@ export const tools = [
     category: 'calculators',
     size: { w: 1, h: 1 },
     css: 'tools/chmod-simulator/tool.css',
-  },
-  {
-    name: 'base64',
-    category: 'encoders-decoders',
-    size: { w: 1, h: 1 },
   },
   {
     name: 'nato-phonetic-alphabet',
@@ -57,6 +52,11 @@ export const tools = [
     category: 'security',
     size: { w: 1, h: 1 },
     css: 'tools/cve-lookup/tool.css',
+  },
+  {
+    name: 'base64',
+    category: 'encoders-decoders',
+    size: { w: 1, h: 1 },
   },
   {
     name: 'docker-cheatsheet',
