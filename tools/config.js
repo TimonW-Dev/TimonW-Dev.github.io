@@ -7,6 +7,7 @@ export const categories = [
   { id: 'phonetic-alphabets', title: 'Phonetic Alphabets' },
   { id: 'network', title: 'Network' },
   { id: 'security', title: 'Security' },
+  { id: 'cheatsheets', title: 'Cheatsheets' },
 ];
 
 export const tools = [
@@ -56,5 +57,17 @@ export const tools = [
     category: 'security',
     size: { w: 1, h: 1 },
     css: 'tools/cve-lookup/tool.css',
+  },
+  {
+    name: 'docker-cheatsheet',
+    category: 'cheatsheets',
+    size: { w: 2, h: 1 },
+    css: 'tools/docker-cheatsheet/tool.css',
+  },
+  {
+    name: 'git-cheatsheet',
+    category: 'cheatsheets',
+    size: { w: 2, h: 1 },
+    css: 'tools/git-cheatsheet/tool.css',
   },
 ];

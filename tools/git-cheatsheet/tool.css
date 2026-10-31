@@ -1,0 +1,49 @@
+.git-cheatsheet code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .85em;
+}
+.git-cheatsheet .cs-rows {
+  display: grid;
+  grid-template-columns: fit-content(62%) minmax(0, 1fr);
+  gap: .15rem .9rem;
+  align-items: baseline;
+}
+.git-cheatsheet .cs-cmd {
+  overflow-wrap: anywhere;
+  color: var(--accent);
+}
+.git-cheatsheet .cs-cmd-only { grid-column: 1 / -1; }
+.git-cheatsheet .cs-comment { color: var(--muted); font-size: .85rem; }
+.git-cheatsheet .cs-comment code { color: var(--text); }
+
+/* Tool page: sections flow into as many columns as fit. */
+.tool-page-body .git-cheatsheet {
+  columns: 520px;
+  column-gap: 2rem;
+}
+.git-cheatsheet .cs-section {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+.git-cheatsheet .cs-section h2 {
+  margin: 0 0 .6rem;
+  padding-bottom: .3rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 1.1rem;
+}
+.git-cheatsheet .cs-block {
+  margin-bottom: .9rem;
+  padding: .6rem .75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+}
+.git-cheatsheet .cs-heading { margin: 0 0 .4rem; font-size: .85rem; font-weight: 700; color: var(--muted); }
+.git-cheatsheet .cs-heading code { color: var(--text); }
+.git-cheatsheet .cs-note { margin: .6rem 0 0; font-size: .85rem; }
+.git-cheatsheet .cs-warn { color: var(--danger-text); }
+
+@media (max-width: 600px) {
+  .git-cheatsheet .cs-rows { grid-template-columns: 1fr; gap: 0; }
+  .git-cheatsheet .cs-comment { margin-bottom: .3rem; }
+}
