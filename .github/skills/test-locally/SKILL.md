@@ -3,14 +3,14 @@ name: test-locally
 description: Test sysadminsuite.com changes in the browser using the VS Code Live Server at http://127.0.0.1:5500/. Use after changing HTML, CSS, JS, tools or legal pages, or when verifying that subpages open.
 ---
 
-**# Test locally**
+# Test locally
 
-ES modules require a local server, so using **VS Code Live Server** at [http://127.0.0.1:5500/](http://127.0.0.1:5500/) is recommended. Avoid opening files via `file://`.
+ES modules require a local server. Use **VS Code Live Server** at [http://127.0.0.1:5500/](http://127.0.0.1:5500/); do not use Node.js or npm-based test/server commands. Avoid opening files via `file://`.
 
 ## Steps
 1. Make sure Live Server is running (start it from VS Code with "Go Live" if needed) and http://127.0.0.1:5500/ responds.
 2. Open the page with the browser tools (`openBrowserPage`, then `readPage` / `screenshotPage`) and check the console for errors.
-3. Run the checks below that apply to the change.
+3. Run the checks below that apply to the changed pages and features.
 
 ## Checklist
 - **Home** (`/`): tiles render, no console errors, search works (also the `/` shortcut) and shows "No tools found" for no match.
@@ -26,7 +26,7 @@ ES modules require a local server, so using **VS Code Live Server** at [http://1
 
   Header/footer links must go to the right pages; "Home" returns to `/`.
 - **Contact**: "Show contact email" reveals the address on click (no plain email in the source).
-- - **Tools**: test valid, invalid and empty input, keyboard use, and both desktop and narrow screen (about 375 px wide) layouts as described above.
+- **Tools**: test valid, invalid and empty input, keyboard use, and both desktop and narrow screen (about 375 px wide) layouts.
 - **API tools**: only hosts listed in `pages/apis.html` are contacted (see the `document-api` skill).
 - **404**: `404.html` applies on GitHub Pages only; Live Server shows its own error page.
 

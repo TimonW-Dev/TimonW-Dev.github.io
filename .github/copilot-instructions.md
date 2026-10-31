@@ -1,14 +1,8 @@
-# Copilot instructions
+# Project guidelines
 
-Project: sysadminsuite.com – static site with sysadmin tools as tiles. Stack: plain HTML, CSS, JavaScript (ES modules). No frameworks, build tools or npm dependencies.
-
-- New tool = `tools/<name>/tool.js` (copy `tools/_template`) + `{ name, category, size }` in `tools/config.js`. Use a lowercase kebab-case name slug. The default page is `tool.html?name=<name>`; set optional `page` and `css` paths only when a tool needs its own page or stylesheet.
-- Keep tool-specific JavaScript in `tools/<name>/tool.js` and tool-specific styles in `tools/<name>/tool.css`, registered through `css` in `tools/config.js`. Do not add files under `assets/js/` or rules to global CSS for logic or styles used only by one tool or category, unless deliberately establishing a documented reusable component standard. Add shared JavaScript or global CSS only for functionality or styles genuinely reused across the site, multiple independent tools, or an intentionally standardized shared component.
-- Use the shared `.tool-info` class from `assets/css/tiles.css` for inline information icons. Put the icon next to the content it explains and provide a concise `title`, matching `aria-label`, `role="img"`, and `tabindex="0"` for hover and keyboard focus.
-- Prefer local client-side logic. Before using any API or third-party service, verify it is compatible with this project: review its terms, privacy policy, data handling, HTTPS availability, and whether it works without a committed secret. Do not add incompatible services; document every approved external service in `pages/apis.html` in the same change, including the host, exact data sent, and provider privacy link. Disclose data sent in the tool UI, handle request failures, and verify the browser contacts only documented hosts. No third-party scripts, fonts, CDNs, trackers, or analytics.
-- Never write the contact email into HTML/JS plainly; use `assets/js/contact.js`.
-- No cookies, trackers, CDNs. Use `textContent`, not `innerHTML`, for user input.
-- Keep legal pages (`pages/`) consistent: use at own risk, no liability.
-- UI language is English. Keep code small, commented only where unclear.
-- Skills in `.github/skills/`: `add-tool`, `document-api` (every external API goes into `pages/apis.html`), `test-locally`.
-- Test only with the VS Code Live Server at http://127.0.0.1:5500/;
+- Stack: plain HTML, CSS and JavaScript (ES modules); no frameworks, build tools or npm dependencies.
+- Prefer local processing. Review every external service for compatibility and document it in `pages/apis.html` before use. Disclose the data sent, handle failures, and contact only documented hosts. Do not add third-party scripts, fonts, CDNs, trackers or cookies.
+- Use `textContent`, never `innerHTML`, for user input. Never put the contact email directly in HTML/JS; use `assets/js/contact.js`.
+- For tool changes, follow the [tool guide](../docs/tool-guide.md) and [add-tool skill](skills/add-tool/SKILL.md). For external services, use the [document-api skill](skills/document-api/SKILL.md); for browser checks, use the [test-locally skill](skills/test-locally/SKILL.md).
+- Test browser behavior only with VS Code Live Server at http://127.0.0.1:5500/; do not use Node.js or npm test/server commands.
+- Keep the UI in English and legal pages consistent with the site's use-at-your-own-risk/no-liability wording. Keep code small and comment only where unclear.

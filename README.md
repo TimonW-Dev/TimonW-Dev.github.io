@@ -17,6 +17,9 @@ The current project includes tools such as:
 
 Everything is designed to work directly in the browser and to be easy to host on a simple static website.
 
+The MAC Vendor Lookup loads vendor data from the public [sysadminsuite-data repository](https://github.com/TimonW-Dev/sysadminsuite-data).
+It requests only the shard matching the first two hex characters; the full MAC address stays in your browser.
+
 ## Why this project exists
 
 A lot of day-to-day technical work involves small, repetitive tasks: converting values, calculating durations, checking formats, or transforming data. These tasks are usually quick, but they are often spread across different tools, websites, or manual methods. sysadminsuite.com aims to bring these everyday helpers together in a single, low-friction experience.
