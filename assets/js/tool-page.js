@@ -1,9 +1,11 @@
 import { initConsent } from './consent.js';
 import { initContact } from './contact.js';
+import { initToolSearch } from './tool-search.js';
 import { tools, loadTool, categoryOf } from './tools.js';
 
 initConsent();
 initContact();
+initToolSearch(document.getElementById('tool-search'), document.getElementById('tool-search-results'));
 
 const name = new URLSearchParams(location.search).get('name');
 const entry = tools.find((t) => t.name === name);

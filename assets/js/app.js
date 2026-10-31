@@ -193,5 +193,14 @@ function filter(value) {
 
 initConsent();
 initContact();
-initSearch(document.getElementById('search'), filter);
+const searchInput = document.getElementById('search');
+initSearch(searchInput, filter);
+searchInput.addEventListener('keydown', (event) => {
+  if (event.key !== 'Enter') return;
+  const matchingTools = [...toolsByName.values()].filter((tool) => matches(tool, searchInput.value));
+  if (matchingTools.length === 1) {
+    event.preventDefault();
+    location.href = toolUrl(matchingTools[0]);
+  }
+});
 load();
