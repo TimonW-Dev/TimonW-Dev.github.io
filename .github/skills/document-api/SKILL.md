@@ -26,7 +26,7 @@ Every approved external data service must be listed in `pages/apis.html` in the 
 2. In `tool.js`, add a comment near the request pointing to `pages/apis.html`, and show a short note in the tile that data is sent to the service.
 3. Handle failures gracefully (offline, rate limit, CORS) with a readable message via `textContent`.
 4. Keep legal pages consistent: "use at your own risk, no liability". Only update `pages/privacy.html` or `assets/js/consent.js` when data processing changes materially; if the consent text changes, bump the `KEY` version in `consent.js` so everyone is asked again.
-5. Complete the API/third-party service review and documentation checkboxes in the PR template.
+5. Complete the relevant API/service checklist item in `.github/PULL_REQUEST_TEMPLATE.md`.
 
 ## Verify
 - Serve the site (see the `test-locally` skill) and open http://127.0.0.1:5500/pages/apis.html: the table renders and the new row is correct.
