@@ -103,7 +103,7 @@ export default {
     results.setAttribute('aria-live', 'polite');
     results.setAttribute('aria-atomic', 'true');
     const resultItems = [];
-    for (const [label, className] of [['Worked', 'work-time-worked'], ['Remaining', 'work-time-remaining']]) {
+    for (const [label, className] of [['Worked', 'work-time-worked'], ['Break', 'work-time-break-result'], ['Remaining', 'work-time-remaining']]) {
       const item = document.createElement('div');
       item.className = `work-time-result ${className}`;
       const heading = document.createElement('strong');
@@ -154,13 +154,29 @@ export default {
         clockOutLabel: clockOut.label,
       };
       entries.push(entry);
+      let clockInWasComplete = false;
+      let clockOutWasComplete = false;
       clockIn.input.addEventListener('input', () => {
         formatTimeInput(clockIn.input);
+        const complete = timeToMinutes(clockIn.input.value) !== null;
         update();
+        if (complete && !clockInWasComplete) clockOut.input.focus();
+        clockInWasComplete = complete;
       });
       clockOut.input.addEventListener('input', () => {
         formatTimeInput(clockOut.input);
+        const complete = timeToMinutes(clockOut.input.value) !== null;
         update();
+        if (complete && !clockOutWasComplete) {
+          const nextEntry = entries[entries.indexOf(entry) + 1];
+          if (nextEntry && !nextEntry.clockIn.value) {
+            nextEntry.clockIn.focus();
+          } else if (!nextEntry && entries.length < MAX_PERIODS) {
+            addPeriod();
+            entries[entries.length - 1].clockIn.focus();
+          }
+        }
+        clockOutWasComplete = complete;
       });
       removeButton.addEventListener('click', () => {
         entry.row.remove();
@@ -191,9 +207,12 @@ export default {
     function update() {
       const targetMinutes = timeToMinutes(targetField.input.value);
       let totalMinutes = 0;
+      let breakMinutes = 0;
       let error = '';
       const openPeriods = [];
       let futureOpenPeriod = false;
+      let previousStart = null;
+      let previousEnd = null;
 
       for (const [index, entry] of entries.entries()) {
         const startValue = entry.clockIn.value;
@@ -214,11 +233,22 @@ export default {
           break;
         }
         if (!startValue) continue;
+        let absoluteStart = start;
+        if (previousStart !== null) {
+          while (absoluteStart < previousStart) absoluteStart += 1440;
+          if (previousEnd !== null) breakMinutes += Math.max(0, absoluteStart - previousEnd);
+        }
         if (!endValue) {
           openPeriods.push({ index, start });
+          previousStart = absoluteStart;
+          previousEnd = null;
           continue;
         }
-        totalMinutes += end < start ? end + 1440 - start : end - start;
+        let absoluteEnd = end;
+        while (absoluteEnd < absoluteStart) absoluteEnd += 1440;
+        totalMinutes += absoluteEnd - absoluteStart;
+        previousStart = absoluteStart;
+        previousEnd = absoluteEnd;
       }
 
       if (!error && openPeriods.length > 1) {
@@ -257,14 +287,17 @@ export default {
         return;
       }
 
-      const breakMinutes = breakInput.checked && totalMinutes > 0 ? 30 : 0;
-      const workedMinutes = Math.max(0, totalMinutes - breakMinutes);
+      const additionalBreakMinutes = breakInput.checked && totalMinutes > 0 ? 30 : 0;
+      breakMinutes += additionalBreakMinutes;
+      const workedMinutes = Math.max(0, totalMinutes - additionalBreakMinutes);
       resultItems[0].sexagesimal.textContent = `${formatTime(workedMinutes)} h`;
       resultItems[0].decimal.textContent = `${formatDecimal(workedMinutes)} decimal hours`;
+      resultItems[1].sexagesimal.textContent = `${formatTime(breakMinutes)} h`;
+      resultItems[1].decimal.textContent = `${formatDecimal(breakMinutes)} decimal hours`;
       if (targetMinutes === null) {
-        resultItems[1].sexagesimal.textContent = '—';
-        resultItems[1].decimal.textContent = '';
-        resultItems[1].item.dataset.state = '';
+        resultItems[2].sexagesimal.textContent = '—';
+        resultItems[2].decimal.textContent = '';
+        resultItems[2].item.dataset.state = '';
         status.textContent = storageMessage || 'Enter your daily target to calculate your remaining time.';
         return;
       }
@@ -274,10 +307,10 @@ export default {
       const isOvertime = difference < 0;
       const hasWorkTime = entries.some((entry) => entry.clockIn.value !== '' || entry.clockOut.value !== '');
       const suffix = isOvertime ? 'overtime' : 'remaining';
-      resultItems[1].heading.textContent = isOvertime ? 'Overtime' : 'Remaining';
-      resultItems[1].sexagesimal.textContent = `${formatTime(absoluteDifference)} h`;
-      resultItems[1].decimal.textContent = `${formatDecimal(absoluteDifference)} decimal hours ${suffix}`;
-      resultItems[1].item.dataset.state = difference > 0 && hasWorkTime ? 'remaining' : difference > 0 ? '' : 'complete';
+      resultItems[2].heading.textContent = isOvertime ? 'Overtime' : 'Remaining';
+      resultItems[2].sexagesimal.textContent = `${formatTime(absoluteDifference)} h`;
+      resultItems[2].decimal.textContent = `${formatDecimal(absoluteDifference)} decimal hours ${suffix}`;
+      resultItems[2].item.dataset.state = difference > 0 && hasWorkTime ? 'remaining' : difference > 0 ? '' : 'complete';
       if (!status.textContent && openPeriods.length === 1 && !futureOpenPeriod) {
         status.textContent = 'Your open time period is counted up to the current time.';
       }
