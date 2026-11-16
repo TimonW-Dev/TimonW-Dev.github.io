@@ -30,7 +30,7 @@
 }
 .work-time-period {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
   gap: .5rem;
   margin: 0;
@@ -43,7 +43,7 @@
   align-items: center;
   justify-content: space-between;
   gap: .5rem;
-  grid-column: 1;
+  grid-column: 1 / -1;
   grid-row: 1;
   max-width: 100%;
   width: 100%;
@@ -57,7 +57,7 @@
   font-size: .85rem;
 }
 .work-time-period .work-time-input {
-  grid-column: 1 / -1;
+  grid-column: auto;
 }
 .work-time-actions {
   display: flex;
@@ -79,7 +79,7 @@
 }
 .work-time-results {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
   gap: .75rem;
 }
 .work-time-result {
