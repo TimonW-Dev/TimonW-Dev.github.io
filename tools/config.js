@@ -48,6 +48,12 @@ export const tools = [
     css: 'tools/mac-vendor-lookup/tool.css',
   },
   {
+    name: 'port-lookup',
+    category: 'network',
+    size: { w: 1, h: 1 },
+    css: 'tools/port-lookup/tool.css',
+  },
+  {
     name: 'cve-lookup',
     category: 'security',
     size: { w: 1, h: 1 },

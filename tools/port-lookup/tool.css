@@ -1,0 +1,69 @@
+.port-lookup-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: .5rem;
+  align-items: end;
+}
+.port-lookup-form label {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  min-width: 0;
+}
+.port-lookup-form label:first-child {
+  grid-column: 1 / -1;
+}
+.port-lookup-form input,
+.port-lookup-form select,
+.port-lookup-form button {
+  min-width: 0;
+  font: inherit;
+}
+.port-lookup-form input {
+  font-family: ui-monospace, monospace;
+}
+.port-lookup-form button {
+  padding: .45rem .7rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--accent);
+  cursor: pointer;
+}
+.port-lookup-form button:hover,
+.port-lookup-form button:focus-visible {
+  border-color: var(--accent);
+}
+.port-lookup-form button:disabled {
+  cursor: wait;
+  opacity: .7;
+}
+.port-lookup-form input[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+.port-lookup-status {
+  margin: 0;
+  font-size: .9rem;
+}
+.port-lookup-status[data-state="invalid"],
+.port-lookup-status[data-state="error"] {
+  color: var(--danger-text);
+}
+.port-lookup-results {
+  max-height: 18rem;
+  overflow: auto;
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: .85rem;
+}
+.port-lookup-results li + li {
+  margin-top: .35rem;
+}
+.port-lookup-results strong {
+  font-family: ui-monospace, monospace;
+}
+.port-lookup-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: .8rem;
+}
